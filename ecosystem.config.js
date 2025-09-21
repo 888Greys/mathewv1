@@ -1,8 +1,7 @@
 module.exports = {
   apps: [{
     name: 'pompompurin',
-    script: 'node',
-    args: '.next/standalone/server.js',
+    script: 'server.js',
     cwd: '/var/www/pompompurin',
     env: {
       NODE_ENV: 'production',
