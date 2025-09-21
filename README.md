@@ -84,7 +84,7 @@ This project is configured for deployment to [pompompurin.xsis.online](https://p
 
 5. Start with PM2:
    ```bash
-   pm2 start ecosystem.config.js
+   pm2 start server.js
    pm2 save
    ```
 
