@@ -41,6 +41,15 @@ jobs:
           rm -rf node_modules || true
           npm ci
           npm run build
+          # Ensure static files are available for standalone build
+          mkdir -p .next/standalone/.next/static
+          cp -r .next/static/* .next/standalone/.next/static/ 2>/dev/null || true
+          # Copy public files if they exist
+          if [ -d "public" ]; then
+            mkdir -p .next/standalone/public
+            cp -r public/* .next/standalone/public/ 2>/dev/null || true
+          fi
+          # Restart application
           pm2 delete pompompurin || true
           pm2 start ecosystem.config.js
           pm2 save

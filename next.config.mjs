@@ -36,7 +36,7 @@ const nextConfig = {
       'node_modules/@esbuild/linux-x64-gnu',
     ],
   },
-  // Ensure styled-jsx is bundled correctly
+  // Ensure styled-jsx is bundled correctly and handle static files for standalone
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.externals = config.externals || [];
@@ -45,6 +45,10 @@ const nextConfig = {
       });
     }
     return config;
+  },
+  // Ensure static assets are properly handled in standalone builds
+  experimental: {
+    outputFileTracingRoot: process.cwd(),
   },
 };
 

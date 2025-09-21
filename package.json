@@ -5,6 +5,8 @@
     "dev": "next dev -p 3001",
     "export": "next export",
     "build": "next build",
+    "build:standalone": "bash scripts/build-standalone.sh",
+    "postbuild": "mkdir -p .next/standalone/.next/static && cp -r .next/static/* .next/standalone/.next/static/ 2>/dev/null || true",
     "biome-write": "npx @biomejs/biome format --write .",
     "start": "next start -p 3001",
     "lint": "next lint"
