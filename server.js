@@ -1,14 +1,22 @@
 const { createServer } = require('node:http')
 const { parse } = require('node:url')
-const next = require('next')
 
 // Handle styled-jsx issue in standalone builds
+let next;
 try {
   // Try to resolve styled-jsx/style
   require.resolve('styled-jsx/style');
+  console.log('styled-jsx/style found in node_modules');
 } catch (e) {
   console.log('styled-jsx/style not found in node_modules, this might be a standalone build issue');
-  // In standalone builds, we might need to adjust the module resolution
+}
+
+try {
+  next = require('next');
+  console.log('Next.js loaded successfully');
+} catch (e) {
+  console.error('Failed to load Next.js:', e);
+  process.exit(1);
 }
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -41,4 +49,7 @@ app.prepare().then(() => {
   }).listen(port, () => {
     console.log(`> Ready on http://localhost:${port}`)
   })
+}).catch(err => {
+  console.error('Failed to prepare Next.js app:', err);
+  process.exit(1);
 })
