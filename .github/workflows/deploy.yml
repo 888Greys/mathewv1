@@ -37,6 +37,8 @@ jobs:
           cd /var/www/pompompurin
           git pull origin main
           rm -rf .next
+          # Remove node_modules with force to avoid ENOTEMPTY errors
+          rm -rf node_modules || true
           npm ci
           npm run build
           pm2 delete pompompurin || true
