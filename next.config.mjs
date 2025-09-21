@@ -26,7 +26,9 @@ const nextConfig = {
   },
   env: {
     CUSTOM_PORT: process.env.PORT || '3001'
-  }
+  },
+  // Ensure styled-jsx is properly handled in standalone builds
+  serverExternalPackages: ['styled-jsx']
 };
 
 export default withMDX(nextConfig);
