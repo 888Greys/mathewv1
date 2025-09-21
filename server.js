@@ -2,6 +2,15 @@ const { createServer } = require('node:http')
 const { parse } = require('node:url')
 const next = require('next')
 
+// Handle styled-jsx issue in standalone builds
+try {
+  // Try to resolve styled-jsx/style
+  require.resolve('styled-jsx/style');
+} catch (e) {
+  console.log('styled-jsx/style not found in node_modules, this might be a standalone build issue');
+  // In standalone builds, we might need to adjust the module resolution
+}
+
 const dev = process.env.NODE_ENV !== 'production'
 const hostname = 'localhost'
 const port = process.env.PORT || 3001
