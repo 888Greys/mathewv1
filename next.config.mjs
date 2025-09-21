@@ -27,8 +27,27 @@ const nextConfig = {
   env: {
     CUSTOM_PORT: process.env.PORT || '3001'
   },
-  // Ensure styled-jsx is properly handled in standalone builds
-  serverExternalPackages: ['styled-jsx']
+  // Fix styled-jsx issues in standalone builds
+  experimental: {
+    outputFileTracingExcludes: {
+      '*': [
+        'node_modules/@swc/core-linux-x64-gnu',
+        'node_modules/@swc/core-linux-x64-musl',
+        'node_modules/@esbuild/darwin-x64',
+        'node_modules/@esbuild/linux-x64-gnu',
+      ],
+    },
+  },
+  // Ensure styled-jsx is bundled correctly
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = config.externals || [];
+      config.externals.push({
+        'styled-jsx/style': 'styled-jsx/style',
+      });
+    }
+    return config;
+  },
 };
 
 export default withMDX(nextConfig);
