@@ -1,10 +1,10 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
+  firstName: "Mathew",
+  lastName: "Kip",
+  name: "Mathew Kip",
   role: "Design Engineer",
   avatar: "/images/avatar.jpg",
   email: "example@gmail.com",
