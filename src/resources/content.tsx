@@ -64,12 +64,7 @@ const home: Home = {
     ),
     href: "/work/building-once-ui-a-customizable-design-system",
   },
-  subline: (
-    <>
-      I'm Mathew, a Software engineer at Brand2D, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
-    </>
-  ),
+  subline: "I'm Mathew, a Software engineer at Brand2D, where I craft intuitive user experiences. After hours, I build my own projects.",
 };
 
 const about: About = {
