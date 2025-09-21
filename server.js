@@ -68,3 +68,9 @@ app.prepare().then(() => {
   console.error('Failed to prepare Next.js app:', err);
   process.exit(1);
 })
+
+// For standalone builds, we don't need a custom server
+// The standalone build already includes a server
+console.log('This server.js is not needed for standalone builds.');
+console.log('Please start the application using: node .next/standalone/server.js');
+process.exit(0);

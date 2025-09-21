@@ -42,5 +42,5 @@ jobs:
           npm ci
           npm run build
           pm2 delete pompompurin || true
-          pm2 start server.js --name pompompurin
+          pm2 start ecosystem.config.js
           pm2 save
