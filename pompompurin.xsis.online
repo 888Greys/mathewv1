@@ -4,6 +4,8 @@ server {
 
     client_max_body_size 50M;
 
+    # IMPORTANT: If you're not seeing updates after deployment, you might need to clear the Nginx cache
+    # Run: sudo nginx -t && sudo systemctl reload nginx
     location / {
         proxy_pass http://localhost:3001;
         proxy_http_version 1.1;
