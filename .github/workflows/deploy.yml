@@ -39,8 +39,6 @@ jobs:
           rm -rf .next
           npm ci
           npm run build
-          # Copy the correct ecosystem.config.js file
-          cp ecosystem.config.js ecosystem.config.js.remote
           pm2 delete pompompurin || true
-          pm2 start ecosystem.config.js.remote
+          pm2 start server.js
           pm2 save
