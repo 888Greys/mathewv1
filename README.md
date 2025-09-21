@@ -40,6 +40,54 @@ Add a new .mdx file to src/app/blog/posts or src/app/work/projects
 
 Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
 
+## Deployment to pompompurin.xsis.online
+
+This project is configured for deployment to [pompompurin.xsis.online](https://pompompurin.xsis.online) using GitHub Actions and PM2 on a server with Nginx.
+
+### Prerequisites
+- Domain configured with Cloudflare (pompompurin.xsis.online)
+- Server with SSH access (194.163.180.87)
+- Node.js 20+ installed on server
+- PM2 installed globally on server
+- Nginx configured on server
+
+### GitHub Actions Setup
+1. Add the following secrets to your GitHub repository:
+   - `SERVER_HOST` = 194.163.180.87
+   - `SERVER_USERNAME` = pom
+   - `SERVER_SSH_KEY` = (your SSH private key)
+   - `SERVER_PORT` = 22
+
+2. Push to the `main` branch to trigger the deployment workflow
+
+### Manual Server Setup (if needed)
+1. Create project directory:
+   ```bash
+   sudo mkdir -p /var/www/pompompurin
+   sudo chown pom:pom /var/www/pompompurin
+   ```
+
+2. Clone your repository:
+   ```bash
+   cd /var/www
+   git clone https://github.com/yourusername/your-repo.git pompompurin
+   cd pompompurin
+   ```
+
+3. Install dependencies and build:
+   ```bash
+   npm ci
+   npm run build
+   ```
+
+4. Configure Nginx using the provided configuration file `pompompurin.xsis.online`
+
+5. Start with PM2:
+   ```bash
+   pm2 start ecosystem.config.js
+   pm2 save
+   ```
+
 ## Documentation
 
 Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
