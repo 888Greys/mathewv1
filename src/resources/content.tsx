@@ -5,11 +5,11 @@ const person: Person = {
   firstName: "Mathew",
   lastName: "Kip",
   name: "Mathew Kip",
-  role: "Design Engineer",
+  role: "Software Engineer",
   avatar: "/images/avatar.jpg",
   email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  location: "Africa/Nairobi", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Swahili"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
@@ -65,13 +65,7 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Mathew, a design engineer at{" "}
-      <Logo
-        dark
-        icon="/trademarks/wordmark-dark.svg"
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
+      I'm Mathew, a Software engineer at Brand2D, where I craft intuitive
       <br /> user experiences. After hours, I build my own projects.
     </>
   ),
