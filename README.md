@@ -231,6 +231,10 @@ This project is configured for deployment to [pompompurin.xsis.online](https://p
 
 Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
 
+### Deployment Troubleshooting
+- **[Deployment Challenges & Solutions](docs/DEPLOYMENT-CHALLENGES.md)** - Comprehensive guide covering all deployment issues and fixes
+- **[Quick Troubleshooting Guide](docs/QUICK-TROUBLESHOOTING.md)** - Fast solutions for common deployment problems
+
 ## Features
 
 ### Once UI
