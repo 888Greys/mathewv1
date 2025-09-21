@@ -190,7 +190,7 @@ const schema: SchemaConfig = {
   type: "Organization",
   name: "Mathew Kip",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "mathew@example.com", // Updated email address
 };
 
 // social links
