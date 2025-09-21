@@ -40,5 +40,5 @@ jobs:
           npm ci
           npm run build
           pm2 delete pompompurin || true
-          pm2 start server.js
+          pm2 start server.js --name pompompurin
           pm2 save
