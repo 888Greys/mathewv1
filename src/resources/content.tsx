@@ -24,17 +24,17 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/your-username",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/your-profile",
   },
   {
     name: "Threads",
     icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.threads.com/@your-username",
   },
   {
     name: "Email",
