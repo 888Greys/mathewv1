@@ -1,6 +1,7 @@
 import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
+// Personal portfolio configuration - Updated September 21, 2025
 const person: Person = {
   firstName: "Mathew",
   lastName: "Kip",

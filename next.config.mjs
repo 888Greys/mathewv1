@@ -28,15 +28,13 @@ const nextConfig = {
     CUSTOM_PORT: process.env.PORT || '3001'
   },
   // Fix styled-jsx issues in standalone builds
-  experimental: {
-    outputFileTracingExcludes: {
-      '*': [
-        'node_modules/@swc/core-linux-x64-gnu',
-        'node_modules/@swc/core-linux-x64-musl',
-        'node_modules/@esbuild/darwin-x64',
-        'node_modules/@esbuild/linux-x64-gnu',
-      ],
-    },
+  outputFileTracingExcludes: {
+    '*': [
+      'node_modules/@swc/core-linux-x64-gnu',
+      'node_modules/@swc/core-linux-x64-musl',
+      'node_modules/@esbuild/darwin-x64',
+      'node_modules/@esbuild/linux-x64-gnu',
+    ],
   },
   // Ensure styled-jsx is bundled correctly
   webpack: (config, { isServer }) => {
