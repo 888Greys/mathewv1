@@ -38,6 +38,145 @@ src/resources/content.js
 Add a new .mdx file to src/app/blog/posts or src/app/work/projects
 ```
 
+## 📝 Content Customization Guide
+
+This section provides a comprehensive guide on which files to edit when customizing your portfolio.
+
+### 🏠 Personal Information & Profile
+**File:** `src/resources/content.tsx`
+- **Personal details:** Name, role, email, location (timezone), languages
+- **Bio/Subline:** Main description on homepage
+- **Social links:** GitHub, LinkedIn, email, etc.
+- **Avatar:** Change path in `person.avatar` (upload to `public/images/`)
+
+### 🎨 Design & Branding
+**File:** `src/resources/once-ui.config.ts`
+- **Colors:** Primary brand colors, background colors
+- **Typography:** Font families, sizes
+- **Layout:** Spacing, borders, radius
+- **Theme:** Light/dark mode settings
+
+**Files:** `public/images/`
+- **Avatar:** Replace `avatar.jpg` with your photo
+- **Favicon:** Replace `src/app/favicon.ico`
+- **Open Graph images:** Update `public/images/og/` for social media previews
+
+### 📝 Blog Posts
+**Directory:** `src/app/blog/posts/`
+- **Create new post:** Add `your-post-title.mdx` file
+- **Required frontmatter:**
+  ```yaml
+  ---
+  title: "Your Post Title"
+  publishedAt: "2025-09-21"
+  summary: "Brief description for previews"
+  tag: "Category"
+  image: "/images/blog/your-image.jpg" (optional)
+  ---
+  ```
+- **Content:** Write in Markdown/MDX format below frontmatter
+- **Images:** Upload to `public/images/blog/` and reference in posts
+
+**Configuration:** `src/resources/content.tsx`
+- **Blog settings:** Enable/disable blog section in `blog` object
+- **Display options:** Set `display: false` to hide blog entirely
+
+### 💼 Work/Projects
+**Directory:** `src/app/work/projects/`
+- **Create new project:** Add `your-project-slug.mdx` file
+- **Required frontmatter:**
+  ```yaml
+  ---
+  title: "Project Name"
+  publishedAt: "2025-09-21"
+  summary: "Project description"
+  images:
+    - "/images/projects/project-name/cover.jpg"
+    - "/images/projects/project-name/demo.mp4"
+  team:
+    - name: "Your Name"
+      role: "Developer"
+  ---
+  ```
+- **Project images:** Upload to `public/images/projects/project-name/`
+
+**Configuration:** `src/resources/content.tsx`
+- **Work experience:** Edit `about.work.experiences` array
+- **Featured project:** Set `home.featured.href` to highlight a project
+
+### 🖼️ Gallery
+**File:** `src/app/gallery/page.tsx`
+- **Images:** Edit the `images` array with your gallery photos
+- **Upload location:** `public/images/gallery/`
+- **Format:** Support for JPG, PNG, MP4
+
+**Configuration:** `src/resources/content.tsx`
+- **Gallery settings:** Enable/disable in `gallery` object
+
+### 📄 About/CV Page
+**File:** `src/resources/content.tsx`
+- **Introduction:** Edit `about.intro.description`
+- **Work experience:** Update `about.work.experiences` array
+- **Education:** Modify `about.studies.institutions`
+- **Technical skills:** Edit `about.technical.skills`
+- **Calendar link:** Update `about.calendar.link` for booking meetings
+
+### 🔧 Technical Configuration
+**File:** `next.config.mjs`
+- **Images:** Add domains to `remotePatterns` for external images
+- **Environment:** Set custom port in `env.CUSTOM_PORT`
+
+**File:** `package.json`
+- **Scripts:** Modify development/build commands
+- **Dependencies:** Add new packages as needed
+
+### 🚀 Deployment Settings
+**File:** `.github/workflows/deploy.yml`
+- **Deployment target:** Change server details if deploying elsewhere
+- **Build process:** Modify if you need custom build steps
+
+**File:** `ecosystem.config.js`
+- **PM2 settings:** Port, environment variables, process name
+
+### 📧 Newsletter & Contact
+**File:** `src/resources/content.tsx`
+- **Newsletter:** Enable/disable and customize in `newsletter` object
+- **Contact form:** Configure form submission (currently uses example endpoint)
+
+### 🎯 Quick Customization Checklist
+
+**For a basic personal portfolio:**
+1. ✅ Update personal info in `src/resources/content.tsx`
+2. ✅ Replace avatar in `public/images/avatar.jpg`
+3. ✅ Add your projects to `src/app/work/projects/`
+4. ✅ Write blog posts in `src/app/blog/posts/`
+5. ✅ Update social links and contact information
+6. ✅ Customize colors in `src/resources/once-ui.config.ts`
+
+**For deployment:**
+1. ✅ Push changes to GitHub (triggers auto-deployment)
+2. ✅ Monitor deployment in GitHub Actions tab
+3. ✅ Visit https://pompompurin.xsis.online to see changes
+
+### 📁 File Structure Reference
+```
+src/
+├── app/
+│   ├── blog/posts/           # Blog posts (.mdx files)
+│   ├── work/projects/        # Portfolio projects (.mdx files)
+│   ├── gallery/              # Photo gallery
+│   └── about/               # About/CV page
+├── resources/
+│   ├── content.tsx          # Main content configuration
+│   └── once-ui.config.ts    # Design/theme settings
+public/
+├── images/
+│   ├── avatar.jpg           # Your profile photo
+│   ├── blog/               # Blog post images
+│   ├── projects/           # Project images
+│   └── gallery/            # Gallery photos
+```
+
 Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
 
 ## Deployment to pompompurin.xsis.online
